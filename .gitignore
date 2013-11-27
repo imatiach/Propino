@@ -1,3 +1,5 @@
+# Propino Stuff
+
 business/
 ide/qt-creator-build/
 installer/input/
@@ -6,6 +8,9 @@ old/
 tools/
 
 *pro.user
+
+installer/bitrock_license.xml
+installer/propino_signature.pfx
 
 #################
 ## Eclipse
