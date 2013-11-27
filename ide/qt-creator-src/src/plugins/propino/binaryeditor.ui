@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BinaryEditor</class>
+ <widget class="QMainWindow" name="BinaryEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>375</height>
+   </size>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::PreventContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Binary Editor</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="centralWidgetLayout">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <property name="leftMargin">
+     <number>2</number>
+    </property>
+    <property name="topMargin">
+     <number>2</number>
+    </property>
+    <property name="rightMargin">
+     <number>2</number>
+    </property>
+    <property name="bottomMargin">
+     <number>2</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="holderWidget" native="true">
+      <layout class="QHBoxLayout" name="holderWidgetLayout">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="editFrame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <layout class="QHBoxLayout" name="editFrameLayout">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="diffFrame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <layout class="QHBoxLayout" name="diffFrameLayout">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuExport_ASCII_Text">
+     <property name="title">
+      <string>Export Selection as ASCII Text</string>
+     </property>
+     <addaction name="actionASCII_To_Clipboard"/>
+     <addaction name="actionASCII_To_File"/>
+    </widget>
+    <widget class="QMenu" name="menuExport_C_Code">
+     <property name="title">
+      <string>Export Selection as C Code</string>
+     </property>
+     <addaction name="actionC_To_Clipboard"/>
+     <addaction name="actionC_To_File"/>
+    </widget>
+    <addaction name="actionInsert_File"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_Selection"/>
+    <addaction name="separator"/>
+    <addaction name="menuExport_ASCII_Text"/>
+    <addaction name="menuExport_C_Code"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="actionDelete"/>
+    <addaction name="separator"/>
+    <addaction name="actionSelect_All"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind_Replace"/>
+    <addaction name="separator"/>
+    <addaction name="actionGoto_Offset"/>
+   </widget>
+   <widget class="QMenu" name="menuMemory">
+    <property name="title">
+     <string>Memory</string>
+    </property>
+    <widget class="QMenu" name="menuChecksums_Hashes">
+     <property name="title">
+      <string>Checksums/Hashes</string>
+     </property>
+     <addaction name="action8_Bit_Checksum"/>
+     <addaction name="action16_Bit_Checksum"/>
+     <addaction name="action32_Bit_Checksum"/>
+     <addaction name="action64_Bit_Checksum"/>
+     <addaction name="separator"/>
+     <addaction name="actionCRC_16_CCITT_Checksum"/>
+     <addaction name="separator"/>
+     <addaction name="actionMD4_Hash"/>
+     <addaction name="actionMD5_Hash"/>
+     <addaction name="separator"/>
+     <addaction name="actionSHA1_Hash"/>
+     <addaction name="actionSHA224_Hash"/>
+     <addaction name="actionSHA256_Hash"/>
+     <addaction name="actionSHA384_Hash"/>
+     <addaction name="actionSHA512_Hash"/>
+    </widget>
+    <widget class="QMenu" name="menuHex_to_Num">
+     <property name="title">
+      <string>Hex to Num</string>
+     </property>
+     <addaction name="action8_Bit_Unsigned_Hex"/>
+     <addaction name="action8_Bit_Signed_Hex"/>
+     <addaction name="action16_Bit_Unsigned_Hex"/>
+     <addaction name="action16_Bit_Signed_Hex"/>
+     <addaction name="action32_Bit_Unsigned_Hex"/>
+     <addaction name="action32_Bit_Signed_Hex"/>
+     <addaction name="action64_Bit_Unsigned_Hex"/>
+     <addaction name="action64_Bit_Signed_Hex"/>
+     <addaction name="separator"/>
+     <addaction name="actionFloat_Hex"/>
+     <addaction name="actionDouble_Hex"/>
+    </widget>
+    <widget class="QMenu" name="menuNum_to_Hex">
+     <property name="title">
+      <string>Num to Hex</string>
+     </property>
+     <addaction name="action8_Bit_Unsigned_Num"/>
+     <addaction name="action8_Bit_Signed_Num"/>
+     <addaction name="action16_Bit_Unsigned_Num"/>
+     <addaction name="action16_Bit_Signed_Num"/>
+     <addaction name="action32_Bit_Unsigned_Num"/>
+     <addaction name="action32_Bit_Signed_Num"/>
+     <addaction name="action64_Bit_Unsigned_Num"/>
+     <addaction name="action64_Bit_Signed_Num"/>
+     <addaction name="separator"/>
+     <addaction name="actionFloat_Num"/>
+     <addaction name="actionDouble_Num"/>
+    </widget>
+    <widget class="QMenu" name="menuCompare_Files">
+     <property name="title">
+      <string>Compare Files</string>
+     </property>
+     <addaction name="actionCompare"/>
+     <addaction name="separator"/>
+     <addaction name="actionFirst_Difference"/>
+     <addaction name="actionNext_Difference"/>
+     <addaction name="actionPrevious_Difference"/>
+     <addaction name="actionLast_Difference"/>
+     <addaction name="separator"/>
+     <addaction name="actionClose"/>
+    </widget>
+    <addaction name="actionRead_Memory"/>
+    <addaction name="actionWrite_Memory"/>
+    <addaction name="actionErase_Memory"/>
+    <addaction name="separator"/>
+    <addaction name="menuChecksums_Hashes"/>
+    <addaction name="separator"/>
+    <addaction name="menuHex_to_Num"/>
+    <addaction name="menuNum_to_Hex"/>
+    <addaction name="separator"/>
+    <addaction name="menuCompare_Files"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionGeneral_Help"/>
+    <addaction name="actionEditor_Help"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuMemory"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionRead_Memory"/>
+   <addaction name="actionWrite_Memory"/>
+   <addaction name="actionErase_Memory"/>
+  </widget>
+  <action name="actionInsert_File">
+   <property name="text">
+    <string>Insert File</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_Selection">
+   <property name="text">
+    <string>Save Selection</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionASCII_To_Clipboard">
+   <property name="text">
+    <string>To Clipboard</string>
+   </property>
+  </action>
+  <action name="actionASCII_To_File">
+   <property name="text">
+    <string>To File</string>
+   </property>
+  </action>
+  <action name="actionC_To_Clipboard">
+   <property name="text">
+    <string>To Clipboard</string>
+   </property>
+  </action>
+  <action name="actionC_To_File">
+   <property name="text">
+    <string>To File</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionSelect_All">
+   <property name="text">
+    <string>Select All</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionFind_Replace">
+   <property name="text">
+    <string>Find/Replace</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionGoto_Offset">
+   <property name="text">
+    <string>Goto Offset</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionRead_Memory">
+   <property name="text">
+    <string>Read Memory</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionWrite_Memory">
+   <property name="text">
+    <string>Write Memory</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionErase_Memory">
+   <property name="text">
+    <string>Erase Memory</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="action8_Bit_Checksum">
+   <property name="text">
+    <string>8-Bit Checksum</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="action16_Bit_Checksum">
+   <property name="text">
+    <string>16-Bit Checksum</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
+  <action name="action32_Bit_Checksum">
+   <property name="text">
+    <string>32-Bit Checksum</string>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
+   </property>
+  </action>
+  <action name="action64_Bit_Checksum">
+   <property name="text">
+    <string>64-Bit Checksum</string>
+   </property>
+   <property name="shortcut">
+    <string>F4</string>
+   </property>
+  </action>
+  <action name="actionCRC_16_CCITT_Checksum">
+   <property name="text">
+    <string>CRC-16-CCITT Checksum</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="actionMD4_Hash">
+   <property name="text">
+    <string>MD4 Hash</string>
+   </property>
+   <property name="shortcut">
+    <string>F6</string>
+   </property>
+  </action>
+  <action name="actionMD5_Hash">
+   <property name="text">
+    <string>MD5 Hash</string>
+   </property>
+   <property name="shortcut">
+    <string>F7</string>
+   </property>
+  </action>
+  <action name="actionSHA1_Hash">
+   <property name="text">
+    <string>SHA1 Hash</string>
+   </property>
+   <property name="shortcut">
+    <string>F8</string>
+   </property>
+  </action>
+  <action name="actionSHA224_Hash">
+   <property name="text">
+    <string>SHA224 Hash</string>
+   </property>
+   <property name="shortcut">
+    <string>F9</string>
+   </property>
+  </action>
+  <action name="actionSHA256_Hash">
+   <property name="text">
+    <string>SHA256 Hash</string>
+   </property>
+   <property name="shortcut">
+    <string>F10</string>
+   </property>
+  </action>
+  <action name="actionSHA384_Hash">
+   <property name="text">
+    <string>SHA384 Hash</string>
+   </property>
+   <property name="shortcut">
+    <string>F11</string>
+   </property>
+  </action>
+  <action name="actionSHA512_Hash">
+   <property name="text">
+    <string>SHA512 Hash</string>
+   </property>
+   <property name="shortcut">
+    <string>F12</string>
+   </property>
+  </action>
+  <action name="action8_Bit_Unsigned_Hex">
+   <property name="text">
+    <string>8-Bit Unsigned</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="action8_Bit_Signed_Hex">
+   <property name="text">
+    <string>8-Bit Signed</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="action16_Bit_Unsigned_Hex">
+   <property name="text">
+    <string>16-Bit Unsigned</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+  <action name="action16_Bit_Signed_Hex">
+   <property name="text">
+    <string>16-Bit Signed</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="action32_Bit_Unsigned_Hex">
+   <property name="text">
+    <string>32-Bit Unsigned</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="action32_Bit_Signed_Hex">
+   <property name="text">
+    <string>32-Bit Signed</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+6</string>
+   </property>
+  </action>
+  <action name="action64_Bit_Unsigned_Hex">
+   <property name="text">
+    <string>64-Bit Unsigned</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+7</string>
+   </property>
+  </action>
+  <action name="action64_Bit_Signed_Hex">
+   <property name="text">
+    <string>64-Bit Signed</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+8</string>
+   </property>
+  </action>
+  <action name="actionFloat_Hex">
+   <property name="text">
+    <string>Float</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+9</string>
+   </property>
+  </action>
+  <action name="actionDouble_Hex">
+   <property name="text">
+    <string>Double</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
+   </property>
+  </action>
+  <action name="action8_Bit_Unsigned_Num">
+   <property name="text">
+    <string>8-Bit Unsigned</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+1</string>
+   </property>
+  </action>
+  <action name="action8_Bit_Signed_Num">
+   <property name="text">
+    <string>8-Bit Signed</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+2</string>
+   </property>
+  </action>
+  <action name="action16_Bit_Unsigned_Num">
+   <property name="text">
+    <string>16-Bit Unsigned</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+3</string>
+   </property>
+  </action>
+  <action name="action16_Bit_Signed_Num">
+   <property name="text">
+    <string>16-Bit Signed</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+4</string>
+   </property>
+  </action>
+  <action name="action32_Bit_Unsigned_Num">
+   <property name="text">
+    <string>32-Bit Unsigned</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+5</string>
+   </property>
+  </action>
+  <action name="action32_Bit_Signed_Num">
+   <property name="text">
+    <string>32-Bit Signed</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+6</string>
+   </property>
+  </action>
+  <action name="action64_Bit_Unsigned_Num">
+   <property name="text">
+    <string>64-Bit Unsigned</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+7</string>
+   </property>
+  </action>
+  <action name="action64_Bit_Signed_Num">
+   <property name="text">
+    <string>64-Bit Signed</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+8</string>
+   </property>
+  </action>
+  <action name="actionFloat_Num">
+   <property name="text">
+    <string>Float</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+9</string>
+   </property>
+  </action>
+  <action name="actionDouble_Num">
+   <property name="text">
+    <string>Double</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+0</string>
+   </property>
+  </action>
+  <action name="actionCompare">
+   <property name="text">
+    <string>Compare</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionFirst_Difference">
+   <property name="text">
+    <string>First Difference</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Home</string>
+   </property>
+  </action>
+  <action name="actionNext_Difference">
+   <property name="text">
+    <string>Next Difference</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+PgDown</string>
+   </property>
+  </action>
+  <action name="actionPrevious_Difference">
+   <property name="text">
+    <string>Previous Difference</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+PgUp</string>
+   </property>
+  </action>
+  <action name="actionLast_Difference">
+   <property name="text">
+    <string>Last Difference</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+End</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionGeneral_Help">
+   <property name="text">
+    <string>General Help</string>
+   </property>
+  </action>
+  <action name="actionEditor_Help">
+   <property name="text">
+    <string>Editor Help</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

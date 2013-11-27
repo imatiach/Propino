@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProgramLoaderDialog</class>
+ <widget class="QDialog" name="ProgramLoaderDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>291</width>
+    <height>154</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Binary Loader</string>
+  </property>
+  <layout class="QGridLayout" name="Layout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetFixedSize</enum>
+   </property>
+   <item row="0" column="0">
+    <widget class="QLabel" name="loaderProtocolLabel">
+     <property name="text">
+      <string>Loader Protocol</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="2">
+    <widget class="QComboBox" name="loaderProtocolMenu">
+     <item>
+      <property name="text">
+       <string>Propeller 1 - Shutdown</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Propeller 1 - Load Run</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Propeller 1 - Program Shutdown</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Propeller 1 - Program Run</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Propeller 1 - Load Stage 1</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Propeller 1 - Load Stage 1/2</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="binaryFileLabel">
+     <property name="text">
+      <string>Binary File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="binaryFileEdit"/>
+   </item>
+   <item row="1" column="2">
+    <widget class="QPushButton" name="binaryFileButton"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="stage1BinaryFileLabel">
+     <property name="text">
+      <string>Stage 1 Binary File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="stage1BinaryFileEdit"/>
+   </item>
+   <item row="2" column="2">
+    <widget class="QPushButton" name="stage1BinaryFileButton"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="stage2BinaryFileLabel">
+     <property name="text">
+      <string>Stage 2 Binary File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="stage2BinaryFileEdit"/>
+   </item>
+   <item row="3" column="2">
+    <widget class="QPushButton" name="stage2BinaryFileButton"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QPushButton" name="loadButton">
+     <property name="text">
+      <string>Load Binary</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <widget class="QWidget" name="dialogButton" native="true">
+     <layout class="QHBoxLayout" name="dialogLayout">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="text">
+         <string>Save</string>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancelButton">
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

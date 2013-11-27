@@ -1,0 +1,44 @@
+CHANGE LOG:
+
+	qt-creator-src/src/app/app.pro
+		<<<
+			TARGET = $$IDE_APP_TARGET
+		>>> 
+			TARGET = propino # $$IDE_APP_TARGET
+
+	qt-creator-src/src/app/app_version.h.in:66
+		<<<
+			const char * const IDE_SETTINGSVARIANT_STR      = \"QtProject\";
+		>>>
+			const char * const IDE_SETTINGSVARIANT_STR      = \"Propino\";
+
+	qt-creator-src/src/app/app_version.h.in:72
+		<<<
+			const char * const IDE_COPY_SETTINGS_FROM_VARIANT_STR = \"Nokia\";
+		>>>
+			const char * const IDE_COPY_SETTINGS_FROM_VARIANT_STR = \"\";	
+			
+	qt-creator-src/src/app/qtcreator.rc:1
+		<<<
+			IDI_ICON1               ICON    DISCARDABLE     "qtcreator.ico"
+		>>>
+			IDI_ICON1               ICON    DISCARDABLE     "../../../../ICONS/propino_logo.ico" // "qtcreator.ico"
+
+	qt-creator-src/src/plugins/plugins.pro:49-50
+		<<<
+			qnx
+		>>>
+			qnx \
+			propino
+	
+	qt-creator-src/src/plugins/coreplugin/mainwindow.cpp:167
+		<<<
+			setWindowTitle(tr("Qt Creator"));
+		>>>
+			setWindowTitle(tr("Propino"));
+	
+	qt-creator-src/src/plugins/coreplugin/editormanager/editormanager.cpp:1953
+		<<<
+			QString windowTitle = tr("Qt Creator");
+		>>>
+			QString windowTitle = tr("Propino");
