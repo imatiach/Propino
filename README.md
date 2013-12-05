@@ -32,11 +32,11 @@ Install TCL: http://www.activestate.com/activetcl/downloads
 
 ### Building
   
-Open ide/qt-creator-src/qtcreator.pro with QtCreator
-Set the output directory for both debug and release to ide/qt-creator-build
-Switch to release mode (lower left hand corner of QtCreator)
-In the Mode Selector (the side bar) got to Projects->Build Steps and override Make with:
-C:\Qt\Tools\QtCreator\bin\jom.exe - This will speed up buidling by the number of cores you have.
+  Open ide/qt-creator-src/qtcreator.pro with QtCreator
+  Set the output directory for both debug and release to ide/qt-creator-build
+  Switch to release mode (lower left hand corner of QtCreator)
+  In the Mode Selector (the side bar) got to Projects->Build Steps and override Make with:
+  C:\Qt\Tools\QtCreator\bin\jom.exe - This will speed up buidling by the number of cores you have.
 
 Other steps... (in the future these steps will not be needed)
 
