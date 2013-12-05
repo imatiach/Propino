@@ -34,7 +34,7 @@ Get the Professional Version
 3. Switch to release mode (lower left hand corner of QtCreator)
 4. In the Mode Selector (the side bar) got to Projects->Build Steps and override Make with:
      C:\Qt\Tools\QtCreator\bin\jom.exe - This will speed up buidling by the number of cores you have
-6. Click the run icon
+6. Click the Build Button
 
 Other steps... (in the future these steps will not be needed)
 
