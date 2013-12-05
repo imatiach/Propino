@@ -20,7 +20,7 @@ Download: http://installbuilder.bitrock.com/download-installbuilder-for-qt-step-
   
 Get the Professional Version
     
-### Other Things
+### Other Stuff
   
 * Install GIT: http://windows.github.com
 * Install Perl: http://www.activestate.com/activeperl/downloads
@@ -33,7 +33,8 @@ Get the Professional Version
 2. Set the output directory for both debug and release to ide/qt-creator-build
 3. Switch to release mode (lower left hand corner of QtCreator)
 4. In the Mode Selector (the side bar) got to Projects->Build Steps and override Make with:
-5. C:\Qt\Tools\QtCreator\bin\jom.exe - This will speed up buidling by the number of cores you have.
+     C:\Qt\Tools\QtCreator\bin\jom.exe - This will speed up buidling by the number of cores you have
+6. Click the run icon
 
 Other steps... (in the future these steps will not be needed)
 
