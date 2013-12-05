@@ -25,7 +25,9 @@ Get the Professional Version
 Install GIT: http://windows.github.com/
 
 Install Perl: http://www.activestate.com/activeperl/downloads (32-bit)
+
 Install Python: http://www.activestate.com/activepython/downloads (32-bit)
+
 Install TCL: http://www.activestate.com/activetcl/downloads (32-bit)
 
 ### Building
