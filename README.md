@@ -22,7 +22,7 @@ Get the Professional Version
     
 ### Other Things
   
-Install GIT: http://windows.github.com/
+Install GIT: http://windows.github.com
 
 Install Perl: http://www.activestate.com/activeperl/downloads
 
